@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1 class="text-center">반갑습니다, {{ username }}님!</h1>
+<div class="text-end mb-3">
+    <a href="/logout" class="btn btn-danger">로그아웃</a>
+</div>
+
+<h2>메모</h2>
+<form method="post" action="/memo" class="mb-3">
+    <div class="mb-3">
+        <textarea name="content" class="form-control" rows="3" placeholder="메모를 작성하세요" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">저장</button>
+</form>
+
+<h3>작성된 메모</h3>
+<div class="row">
+    {% for memo in memos %}
+    <div class="col-md-6 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ memo.split(':')[0] }}</h5>
+                <p class="card-text">{{ memo.split(':')[1] }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

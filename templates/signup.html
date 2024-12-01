@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="card mx-auto" style="max-width: 400px;">
+    <div class="card-body">
+        <h2 class="card-title text-center">회원가입</h2>
+        <form method="post" action="/signup">
+            <div class="mb-3">
+                <label for="name" class="form-label">이름</label>
+                <input type="text" name="name" id="name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="id" class="form-label">ID</label>
+                <input type="text" name="id" id="id" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" id="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">회원가입</button>
+        </form>
+        <div class="text-center mt-3">
+            <a href="/">메인 페이지로 이동</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
